@@ -1,0 +1,644 @@
+{
+	"info": {
+		"_postman_id": "61770b82-6358-43e7-9d7d-89aa6efda41e",
+		"name": "School Management API",
+		"description": "### API Documentation\n\nProject ini adalah sistem manajemen sekolah yang dikembangkan menggunakan Spring Boot, dengan fitur keamanan diimplementasikan menggunakan Spring Security JWT (JSON Web Tokens).\n\nAkun Testing:\n\n- Role Admin :  \n    Username : admin  \n    Password : 123456\n    \n- Role Mod :  \n    Username : mod  \n    Password : 123456\n    \n- Role user :  \n    Username : user  \n    Password : 123456\n    \n\n#### 1\\. Auth\n\n- **POST** `/api/auth/signin`\n    \n    - Description: Login untuk mendapatkan bearer token\n        \n    - Bearer token otomatis terset saat melakukan login\n        \n- **POST** `/api/auth/signup`\n    \n    - Description: Register akun untuk akses API\n        \n    - Role : admin / mod / user\n        \n\n#### 2\\. Manajemen Guru\n\n- **GET** `/api/guru` - Role : User, Mod, Admin\n    \n    - Description: Mendapatkan daftar guru\n        \n- **GET** `/api/guru/{id}`\\- Role : User, Mod, Admin\n    \n    - Description: Mendapatkan informasi guru berdasarkan ID\n        \n- **POST** `/api/guru`\\- Role : Mod, Admin\n    \n    - Description: Menambahkan guru baru\n        \n- **PUT** `/api/guru/{id}`\\- Role : Mod, Admin\n    \n    - Description: Mengupdate informasi guru berdasarkan ID\n        \n- **DELETE** `/api/guru/{id}`\\- Role : Admin\n    \n    - Description: Menghapus guru berdasarkan ID\n        \n\n#### 3\\. Manajemen Siswa\n\n- **GET** `/api/siswa`\\- Role : User, Mod, Admin\n    \n    - Description: Mendapatkan daftar siswa\n        \n- **GET** `/api/siswa/{id}`\\- Role : User, Mod, Admin\n    \n    - Description: Mendapatkan informasi siswa berdasarkan ID\n        \n- **POST** `/api/siswa`\\- Role : Mod, Admin\n    \n    - Description: Menambahkan siswa baru\n        \n- **PUT** `/api/siswa/{id}`\\- Role : Mod, Admin\n    \n    - Description: Mengupdate informasi siswa berdasarkan ID\n        \n- **DELETE** `/api/siswa/{id}`\\- Role : Admin\n    \n    - Description: Menghapus siswa berdasarkan ID\n        \n\n#### 4\\. Jadwal Pelajaran\n\n- **GET** `/api/jadwal-pelajaran`\\- Role : User, Mod, Admin\n    \n    - Description: Mendapatkan jadwal pelajaran\n        \n- **GET** `/api/jadwal-pelajaran/{id}`\\- Role : User, Mod, Admin\n    \n    - Description: Mendapatkan informasi jadwal pelajaran berdasarkan ID\n        \n- **POST** `/api/jadwal-pelajaran`\\- Role : Mod, Admin\n    \n    - Description: Menambahkan jadwal pelajaran baru\n        \n- **PUT** `/api/jadwal-pelajaran/{id}`\\- Role : Mod, Admin\n    \n    - Description: Mengupdate informasi jadwal pelajaran berdasarkan ID\n        \n- **DELETE** `/api/jadwal-pelajaran/{id}`\\- Role : Admin\n    \n    - Description: Menghapus jadwal pelajaran berdasarkan ID\n        \n\n#### 5\\. Pengelolaan Nilai\n\n- **GET** `/api/nilai`\\- Role : User, Mod, Admin\n    \n    - Description: Mendapatkan daftar nilai\n        \n- **GET** `/api/nilai/{id}`\\- Role : User, Mod, Admin\n    \n    - Description: Mendapatkan informasi nilai berdasarkan ID\n        \n- **POST** `/api/nilai`\\- Role : Mod, Admin\n    \n    - Description: Menambahkan nilai baru\n        \n- **PUT** `/api/nilai/{id}`\\- Role : Mod, Admin\n    \n    - Description: Mengupdate informasi nilai berdasarkan ID\n        \n- **DELETE** `/api/nilai/{id}`\\- Role : Admin\n    \n    - Description: Menghapus nilai berdasarkan ID",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14307371",
+		"_collection_link": "https://blue-resonance-953040.postman.co/workspace/Twitter~b428da95-ffd8-4833-aca4-47a3f41c0dec/collection/14307371-61770b82-6358-43e7-9d7d-89aa6efda41e?action=share&source=collection_link&creator=14307371"
+	},
+	"item": [
+		{
+			"name": "Manajemen Guru",
+			"item": [
+				{
+					"name": "GET Daftar Guru",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJraWR6bXl1amlra3UiLCJpYXQiOjE3MTc1OTIyOTAsImV4cCI6MTcxNzY3ODY5MH0.dX5CLG8RZBMEkLWXpwYjoHtsjuH62VeEh-Ix82t56Os",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/guru",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"guru"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Informasi Guru Berdasarkan ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/guru/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"guru",
+								"{id}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Tambah Guru Baru",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\": \"John Doe\",\r\n    \"alamat\": \"Jakarta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/guru",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"guru"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Informasi Guru Berdasarkan ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\": \"john du\",\r\n    \"alamat\": \"Tangerang\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/guru/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"guru",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Hapus Guru Berdasarkan ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/guru/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"guru",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Manajemen Siswa",
+			"item": [
+				{
+					"name": "GET Daftar Siswa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/siswa",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"siswa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Informasi Siswa Berdasarkan ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/siswa/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"siswa",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Tambah Siswa Baru",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\": \"Lorem Ipsum\",\r\n    \"kelas\": \"XI\",\r\n    \"alamat\": \"Jakarta Barat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/siswa",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"siswa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Informasi Siswa Berdasarkan ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\": \"Dolor Sit\",\r\n    \"kelas\": \"XI\",\r\n    \"alamat\": \"Jakarta Barat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/siswa/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"siswa",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Hapus Siswa Berdasarkan ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/siswa/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"siswa",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jadwal Pelajaran",
+			"item": [
+				{
+					"name": "GET Jadwal Pelajaran",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/jadwal-pelajaran",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"jadwal-pelajaran"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Informasi Jadwal Pelajaran Berdasarkan ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/jadwal-pelajaran/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"jadwal-pelajaran",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Tambah Jadwal Pelajaran Baru",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hari\": \"Senin\",\r\n    \"jamMulai\": \"07:00:00\",\r\n    \"jamSelesai\": \"09:00:00\",\r\n    \"mataPelajaran\": \"Bahasa Indonesia\",\r\n    \"guru\": {\r\n        \"id\": {id_guru}\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/jadwal-pelajaran",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"jadwal-pelajaran"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Informasi Jadwal Pelajaran Berdasarkan ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hari\": \"Rabu\",\r\n    \"jamMulai\": \"07:00:00\",\r\n    \"jamSelesai\": \"09:00:00\",\r\n    \"mataPelajaran\": \"Bahasa Indonesia\",\r\n    \"guru\": {\r\n        \"id\": {id_guru}\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/jadwal-pelajaran/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"jadwal-pelajaran",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Hapus Jadwal Pelajaran Berdasarkan ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/jadwal/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"jadwal",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pengelolaan Nilai",
+			"item": [
+				{
+					"name": "GET Daftar Nilai",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/nilai",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"nilai"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Informasi Nilai Berdasarkan ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/nilai/{id}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"nilai",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Tambah Nilai Baru",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nilai\": 80,\r\n    \"jadwalPelajaran\": {\r\n        \"id\": {id_jadwal_pelajaran}\r\n    },\r\n    \"siswa\": {\r\n        \"id\": {id_siswa}\r\n    },\r\n    \"guru\": {\r\n        \"id\": {id_guru}\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/nilai",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"nilai"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Informasi Nilai Berdasarkan ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nilai\": 10,\r\n    \"jadwalPelajaran\": {\r\n        \"id\": {id_jadwal_pelajaran}\r\n    },\r\n    \"siswa\": {\r\n        \"id\": {id_siswa}\r\n    },\r\n    \"guru\": {\r\n        \"id\": {id_guru}\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/nilai/10",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"nilai",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Hapus Nilai Berdasarkan ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/api/nilai/{{id}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"nilai",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "POST Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = pm.response.json();\r",
+									"pm.environment.set('token', res.accessToken);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"kidzmyujikku\",\r\n    \"password\": \"rahasia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/auth/signin",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"email\": \"admin@email.com\",\r\n    \"role\": [\"admin\", \"mod\", \"user\"], \r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
